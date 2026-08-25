@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  @apply bg-ink-900 text-paper-50 font-body antialiased;
+  background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.05) 1px, transparent 0);
+  background-size: 26px 26px;
+}
+
+::selection {
+  background: #4FD9C5;
+  color: #0A0C11;
+}
+
+:focus-visible {
+  outline: 2px solid #4FD9C5;
+  outline-offset: 2px;
+}
+
+/* Dashed traversal line animation used on career-path / prerequisite views */
+@keyframes dash-travel {
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+
+.traversal-line {
+  stroke-dasharray: 6 6;
+  animation: dash-travel 1.1s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .traversal-line {
+    animation: none;
+  }
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: #262C42;
+  border-radius: 999px;
+}
