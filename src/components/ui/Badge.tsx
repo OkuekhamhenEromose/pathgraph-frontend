@@ -1,6 +1,5 @@
 import type { ReactNode } from "react";
-
-type BadgeVariant = "neutral" | "teal" | "coral" | "ic" | "mgmt";
+import type { BadgeVariant } from "./badge-utils";
 
 const VARIANT_CLASSES: Record<BadgeVariant, string> = {
   neutral: "border-ink-500 bg-ink-700 text-paper-200",
@@ -15,7 +14,10 @@ interface BadgeProps {
   variant?: BadgeVariant;
 }
 
-export function Badge({ children, variant = "neutral" }: BadgeProps) {
+export function Badge({
+  children,
+  variant = "neutral",
+}: BadgeProps) {
   return (
     <span
       className={`inline-flex items-center rounded-full border px-2.5 py-0.5 font-mono text-[11px] uppercase tracking-wide ${VARIANT_CLASSES[variant]}`}
@@ -23,10 +25,4 @@ export function Badge({ children, variant = "neutral" }: BadgeProps) {
       {children}
     </span>
   );
-}
-
-/** A track name like "Individual Contributor" / "Engineering Management" maps to a line color. */
-export function trackVariant(trackName?: string | null): BadgeVariant {
-  if (!trackName) return "neutral";
-  return /manage|management|leadership/i.test(trackName) ? "mgmt" : "ic";
 }
