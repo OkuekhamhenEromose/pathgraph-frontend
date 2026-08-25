@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { fetchHealth, type HealthResponse } from "../routes/health";
+import { fetchHealth, type HealthResponse } from "../../routes/health";
 
 const POLL_INTERVAL_MS = 30_000;
 
